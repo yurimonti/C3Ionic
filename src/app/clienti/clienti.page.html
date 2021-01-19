@@ -5,9 +5,78 @@
 </ion-header>
 
 <ion-content>
+  <div id="container">
+  <ion-item>
+    <ion-label>Tabella Negozi</ion-label>
+    <table>
+      <thead>
+        <th>id: </th>
+        <th>nome: </th>
+        <th>descrizione: </th>
+        <th>indirizzo: </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let negozio of negozi" >
+          <td>{{negozio.id}}</td>
+          <td>{{negozio.nome}}</td>
+          <td>{{negozio.descrizione}}</td>
+          <td>{{negozio.indirizzo}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ion-label>Tabella Lockers</ion-label>
+    <table>
+      <thead>
+        <th>id: </th>
+        <th>nome: </th>
+        <th>indirizzo: </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let locker of lockers" >
+          <td>{{locker.id}}</td>
+          <td>{{locker.nome}}</td>
+          <td>{{locker.indirizzo}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ion-item>
   <ion-item>
     <ion-label position="floating">ID Negozio</ion-label>
     <ion-input [(ngModel)]= "idNegozio" [name] = "['idNegozio']"></ion-input>
+    <ion-button (click)="setEmittenteToOrdine();getProdotti()">seleziona Negozio</ion-button>
+    <ion-label position="floating">ID Locker</ion-label>
+  <ion-input [(ngModel)]= "idLocker" [name] = "['idLocker']"></ion-input>
+  <ion-button (click)="setDestinazioneToOrdine()">seleziona Locker</ion-button>
   </ion-item>
-  <ion-button (click)="setEmittenteToOrdine()">clicca</ion-button>
+  <ion-item>
+    <ion-label>Tabella Prodotti</ion-label>
+    <table>
+      <thead>
+        <th>id: </th>
+        <th>nome: </th>
+        <th>descrizione: </th>
+        <th>prezzo: </th>
+        <th>serialCode: </th>
+        <th>numero: </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodotto of prodotti" >
+          <td>{{prodotto.id}}</td>
+          <td>{{prodotto.nome}}</td>
+          <td>{{prodotto.descrizione}}</td>
+          <td>{{prodotto.prezzo}}</td>
+          <td>{{prodotto.serialCode}}</td>
+          <td>{{prodotto.numero}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ion-label position="floating">ID Prodotto</ion-label>
+    <ion-input [(ngModel)]= "idProdotto" [name] = "['idProdotto']"></ion-input>
+    <ion-label position="floating">numero Prodotto</ion-label>
+    <ion-input [(ngModel)]= "numeroProdotto" [name] = "['numeroProdotto']"></ion-input>
+    <ion-button (click)="setProdottoToOrdine()">seleziona prodotto</ion-button>
+  </ion-item>
+  <ion-button (click)="addOrdineToCliente()" >add Ordine</ion-button>
+  <ion-button (click)="annullaOrdine()" >annulla Ordine</ion-button>
+</div>
 </ion-content>
