@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ClientiPage
+  },  {
+    path: 'effettua-ordine',
+    loadChildren: () => import('./effettua-ordine/effettua-ordine.module').then( m => m.EffettuaOrdinePageModule)
   }
+
 ];
 
 @NgModule({

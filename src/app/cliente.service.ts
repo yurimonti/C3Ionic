@@ -12,6 +12,10 @@ export class ClienteService {
 
   constructor(private http:HttpClient) { }
 
+  public logoutCliente(){
+    this._sharedIdCliente=null;
+  }
+
   public getLockers():Observable<any>{
     return this.http.get(this.url+"/lockers",{
       headers:this.httpHeaders,
