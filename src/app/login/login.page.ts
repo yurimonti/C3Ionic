@@ -15,9 +15,7 @@ export class LoginPage implements OnInit {
 
   constructor(private loginService:LoginService,private route:Router) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
   
   public get idUser() : number {
     return this._idUser;

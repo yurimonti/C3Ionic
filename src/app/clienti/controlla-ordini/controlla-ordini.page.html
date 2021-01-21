@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>controllaOrdini</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-item>
+      <ion-label>Filtra Ordini</ion-label>
+      <ion-select id="selecter" placeholder="Seleziona Uno" (ionChange)="selectFilter($event)" [(ngModel)] = "filtro">
+        <ion-select-option value="tutti">Tutti</ion-select-option>
+        <ion-select-option value="non completati">Non completati </ion-select-option>
+        <ion-select-option value="da ritirare">Da Ritirare </ion-select-option>
+      </ion-select>
+      <ion-label>Tabella Ordini</ion-label>
+      <table>
+        <thead>
+          <th>id: </th>
+          <th>numero ordine: </th>
+          <th>soldi: </th>
+          <th>emittente: </th>
+          <th>destinazione: </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ordine of ordini" >
+            <td>{{ordine.id}}</td>
+            <td>{{ordine.numeroOrdine}}</td>
+            <td>{{ordine.soldi}}</td>
+            <td>{{ordine.emittente.nome}}</td>
+            <td>{{ordine.destinazione.nome}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <ion-label position="floating">Id Ordine da Ritirare</ion-label>
+      <ion-input [(ngModel)]= "idOrdine" [name] = "['idOrdine']"></ion-input>
+      <ion-button (click)="setRitirato()" >Ritira Ordine</ion-button>
+      <ion-label position="floating">Id Ordine da vedere</ion-label>
+      <ion-input [(ngModel)]= "idOrdine" [name] = "['idOrdine']"></ion-input>
+      <ion-button>Vedi Dettagli Ordine</ion-button>
+    </ion-item>
+    <ion-button routerLink="/clienti" >Home Clienti</ion-button>
+  </div>
+</ion-content>

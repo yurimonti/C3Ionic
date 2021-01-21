@@ -98,8 +98,9 @@ export class Negozio{
         this._orario = v;
     }
     
-    
-    
+    public toString(){
+        return this.nome;
+    }
     
 
 }

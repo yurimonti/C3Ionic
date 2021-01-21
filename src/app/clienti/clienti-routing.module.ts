@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'effettua-ordine',
     loadChildren: () => import('./effettua-ordine/effettua-ordine.module').then( m => m.EffettuaOrdinePageModule)
+  },
+  {
+    path: 'controlla-ordini',
+    loadChildren: () => import('./controlla-ordini/controlla-ordini.module').then( m => m.ControllaOrdiniPageModule)
   }
 
 ];
