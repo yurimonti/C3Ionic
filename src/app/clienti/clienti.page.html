@@ -1,13 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>clienti</ion-title>
+    <ion-button id ="logout_button"(click)="logout()" routerLink="../login" >Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label position="floating">ID Negozio</ion-label>
-    <ion-input [(ngModel)]= "idNegozio" [name] = "['idNegozio']"></ion-input>
-  </ion-item>
-  <ion-button (click)="setEmittenteToOrdine()">clicca</ion-button>
+  <div id="container">
+    <ion-button routerLink="./effettua-ordine" >effettua ordine</ion-button>
+  </div>
 </ion-content>
