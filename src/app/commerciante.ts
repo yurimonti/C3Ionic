@@ -6,14 +6,21 @@ export class Commerciante{
     private _password: string;
     private _negozio: Negozio;
     
+    constructor(
+        /* id:number, */
+        nome:string,
+        cognome:string,
+        email:string,
+        password:string/* ,
+        negozio:Negozio */
+        ){
+            this._nome = nome;
+            this._cognome=cognome;
+            this._email = email;
+            this._password = password;
+/*             this._negozio = negozio; */
+        }
     
-    constructor(){
-        this.nome="";
-        this.cognome="";
-        this.email="";
-        this.password="";
-        this.negozio=null;
-    }
     ngOnInit() {}
 
     public get nome() : string {
