@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'prova-registration',
     loadChildren: () => import('./prova-registration/prova-registration.module').then( m => m.ProvaRegistrationPageModule)
   },
+  {
+    path: 'commerciante',
+    loadChildren: () => import('./commerciante/commerciante.module').then( m => m.CommerciantePageModule)
+  },
 ];
 
 @NgModule({
