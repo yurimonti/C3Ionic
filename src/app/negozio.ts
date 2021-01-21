@@ -10,7 +10,16 @@ export class Negozio{
     private _prodotti:Array<Prodotto>;
     private _ordini:Array<Ordine>;
     
-    constructor(){}
+    constructor(
+        /* id:number, */
+        nome:string,
+        descrizione:string,
+        indirizzo:string,
+        orario:string
+        /* prodotti:Array<Prodotto>,
+        ordini:Array<Ordine> */
+        ){
+    }
     
     /* public prodottiString():string{
         let stampaProdotti ="";
