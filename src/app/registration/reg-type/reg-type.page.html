@@ -7,9 +7,9 @@
 <ion-content>
 <div id="container">
   <h2>Come ti vuoi registrare?</h2>
-  <ion-button value="cliente" color="primary" expand="block" routerLink ="/registration">Cliente</ion-button>
-  <ion-button value="commerciante" color="primary" expand="block" routerLink="/registration/reg-commerciante">Commerciante</ion-button>
-  <ion-button value="corriere" color="primary" expand="block" routerLink="/registration">Corriere</ion-button>
-  <ion-button color="primary" expand="block" routerLink="">Indietro</ion-button>
+  <ion-button (click)="setTypeToCliente()" value="cliente" color="primary" expand="block" >Cliente</ion-button>
+  <ion-button (click)="setTypeToCommerciante()" value="commerciante" color="primary" expand="block" >Commerciante</ion-button>
+  <ion-button (click)="setTypeToCorriere()" value="corriere" color="primary" expand="block">Corriere</ion-button>
+  <ion-button color="primary" expand="block" routerLink="../../home">Indietro</ion-button>
 </div>
 </ion-content>
