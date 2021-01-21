@@ -1,6 +1,5 @@
-import { Negozio } from './../negozio';
-import { Commerciante } from './../commerciante';
 import { Component, OnInit } from '@angular/core';
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-prova-registration',
