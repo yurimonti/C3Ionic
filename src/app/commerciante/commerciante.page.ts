@@ -1,3 +1,4 @@
+import { CommercianteService } from './../commerciante.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommerciantePage implements OnInit {
 
-  constructor() { }
-
+  constructor(private commercianteService:CommercianteService) { }
   ngOnInit() {
+  }
 
+  public logout(){
+    this.commercianteService.logoutCommerciante();
+    alert("logout effettuato");
   }
-  }
+
+}
