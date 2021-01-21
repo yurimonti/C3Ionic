@@ -12,11 +12,12 @@ import { Prodotto } from '../prodotto';
 })
 export class ClientiPage implements OnInit {
   
-  constructor(private clienteService:ClienteService){}
+  constructor(private clienteService:ClienteService,private router:Router){}
   ngOnInit(){}
 
   public logout(){
     this.clienteService.logoutCliente();
     alert("logout effettuato");
+    this.router.navigate(["../login"]);
   }
 }

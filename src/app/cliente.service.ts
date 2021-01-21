@@ -16,6 +16,32 @@ export class ClienteService {
     this._sharedIdCliente=null;
   }
 
+  public getOrdini():Observable<any>{
+    return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordini",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+  public getOrdiniNonCompletati():Observable<any>{
+    return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordiniNonCompletati",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+  public getOrdiniDaRitirare():Observable<any>{
+    return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordiniDaRitirare",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+
+  public settaRitirato(idOrdine:number):Observable<any>{
+    return this.http.patch(this.url+"/clienti/"+this._sharedIdCliente+"/ritiraOrdine/"+idOrdine,null,{
+      headers:this.httpHeaders,
+      responseType:'text'
+    })
+  }
+
   public getLockers():Observable<any>{
     return this.http.get(this.url+"/lockers",{
       headers:this.httpHeaders,
