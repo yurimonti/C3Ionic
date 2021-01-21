@@ -24,7 +24,7 @@ export class RegCommerciantePage implements OnInit {
   }
   
   public registration(){
-    this.registrationService.registration(this.nome,this.cognome,this.email,this.password,this.nomeNegozio,
+    this.registrationService.registrationCom(this.nome,this.cognome,this.email,this.password,this.nomeNegozio,
       this.descrizione,this.indirizzo,this.orario)
       .subscribe(data => {
         data = "registrazione completata";
