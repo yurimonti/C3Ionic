@@ -28,14 +28,6 @@ const routes: Routes = [
     loadChildren: () => import('./commerciante/commerciante.module').then( m => m.CommerciantePageModule)
   },
   {
-    path: 'commerciante-modifica-negozio',
-    loadChildren: () => import('./commerciante-modifica-negozio/commerciante-modifica-negozio.module').then( m => m.CommercianteModificaNegozioPageModule)
-  },
-  {
-    path: 'commerciante-gestisci-ordini',
-    loadChildren: () => import('./commerciante-gestisci-ordini/commerciante-gestisci-ordini.module').then( m => m.CommercianteGestisciOrdiniPageModule)
-  },
-  {
     path: 'prova-registration',
     loadChildren: () => import('./prova-registration/prova-registration.module').then( m => m.ProvaRegistrationPageModule)
   },
