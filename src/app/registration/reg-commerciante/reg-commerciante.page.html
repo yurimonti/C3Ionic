@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>registration</ion-title>
+    <ion-title>reg-commerciante</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,6 +21,14 @@
     <ion-item>
       <ion-label position="floating"> Password</ion-label>
       <ion-input  [name] = "['password']" [clearInput] = "['true']" [type] = "['password']" [clearOnEdit] = "['true']"  [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Nome del negozio</ion-label>
+      <ion-input  [name] = "['negozioNome']" [clearInput] = "['true']"  [clearOnEdit] = "['true']"  [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Via del negozio</ion-label>
+      <ion-input  [name] = "['negozioVia']" [clearInput] = "['true']" [clearOnEdit] = "['true']"  [required] = "['true']"></ion-input>
     </ion-item>
   </ion-list>
   <ion-button color="primary" expand="block" >Registarti</ion-button>

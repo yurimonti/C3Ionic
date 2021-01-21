@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 export class RegistrationService {
   private url = "http://localhost:8080/register";
   private httpHeaders = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
-
   constructor(private http:HttpClient) { }
 
   public registration( nome:string,cognome:string,email:string,password:string, nomeNegozio:string,
@@ -19,5 +18,4 @@ export class RegistrationService {
       responseType:'text'
     })
   }
-
 }
