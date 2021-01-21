@@ -22,7 +22,19 @@ const routes: Routes = [
   {
     path: 'clienti',
     loadChildren: () => import('./clienti/clienti.module').then( m => m.ClientiPageModule)
+  },  {
+    path: 'commerciante',
+    loadChildren: () => import('./commerciante/commerciante.module').then( m => m.CommerciantePageModule)
   },
+  {
+    path: 'commerciante-modifica-negozio',
+    loadChildren: () => import('./commerciante-modifica-negozio/commerciante-modifica-negozio.module').then( m => m.CommercianteModificaNegozioPageModule)
+  },
+  {
+    path: 'commerciante-gestisci-ordini',
+    loadChildren: () => import('./commerciante-gestisci-ordini/commerciante-gestisci-ordini.module').then( m => m.CommercianteGestisciOrdiniPageModule)
+  },
+
 ];
 
 @NgModule({
