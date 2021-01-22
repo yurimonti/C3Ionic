@@ -10,13 +10,19 @@
       <thead>
         <th>id:  </th>
         <th>nome:  </th>
-        <th>indirizzo:  </th>
+        <th>descrizione:  </th>
+        <th>numero:  </th>
+        <th>prezzo:  </th>
+        <th>serialCode:  </th>
       </thead>
       <tbody>
-        <tr>
-          <td>cane </td>
-          <td>gatto </td>
-          <td>pene </td>
+        <tr  *ngFor="let prodotto of prodotti">
+          <td>{{prodotto.id}} </td>
+          <td>{{prodotto.nome}} </td>
+          <td>{{prodotto.descrizione}} </td>
+          <td>{{prodotto.numero}} </td>
+          <td>{{prodotto.prezzo}} </td>
+          <td>{{prodotto.serialCode}} </td>
         </tr>
       </tbody>
     </table>

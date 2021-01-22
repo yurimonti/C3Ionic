@@ -12,7 +12,8 @@ export class CommerciantePage implements OnInit {
   private _ordini: Array<Ordine>;
   ordiniStampati:Array<Ordine>= new Array();
 
-  constructor(private commercianteService:CommercianteService, private router:Router) { }
+  constructor(private commercianteService:CommercianteService,private router:Router) { }
+
   ngOnInit() {
     this.getOrdiniDaSoddisfare();
   }
