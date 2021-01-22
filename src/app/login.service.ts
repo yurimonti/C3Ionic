@@ -25,7 +25,7 @@ export class LoginService {
   public setSharedId(v : number,type:string){
     this._sharedId = v;
     if(type=="cliente")this.clienteService.sharedIdCliente=this.sharedId;
-    if(type=="commerciante")this.commercianteService.sharedIdCliente=this._sharedId;
+    if(type=="commerciante")this.commercianteService.sharedIdCommerciante=this.sharedId;
   }
 
   public verifyLogin(type:string,email:string,password:string):Observable<any> {
