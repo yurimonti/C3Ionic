@@ -16,6 +16,12 @@ export class ClienteService {
     this._sharedIdCliente=null;
   }
   
+  public getOrdine(idOrdine:number):Observable<any>{
+    return this.http.get(this.url+"/ordini/"+idOrdine,{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
 
   public getOrdini():Observable<any>{
     return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordini",{
@@ -114,8 +120,6 @@ export class ClienteService {
   
   public set sharedIdCliente(v : number) {
     this._sharedIdCliente = v;
-  }
-  
-  
+  } 
 
 }
