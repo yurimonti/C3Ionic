@@ -14,7 +14,7 @@ export class RegistrationCorrierePage implements OnInit {
   private _email: string;
   private _password: string;
   private _type:string="corriere";
-  constructor(private rService:RegistrationService, private router:Router) {}
+  constructor(private registrationService:RegistrationService, private router:Router) {}
 
   ngOnInit() {
   }
@@ -55,8 +55,7 @@ export class RegistrationCorrierePage implements OnInit {
   
 
   public registration(){
-
-    this.rService.registrationCliCor(this._nome,this._cognome,this._email,this._password,this._type).subscribe(data => {
+    this.registrationService.registrationCliCor(this._nome,this._cognome,this._email,this._password,this._type).subscribe(data => {
       data = "registrazione completata";
       alert(data);
       this.router.navigate(["../../login"])

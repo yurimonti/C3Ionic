@@ -15,6 +15,7 @@ export class ClienteService {
   public logoutCliente(){
     this._sharedIdCliente=null;
   }
+  
 
   public getOrdini():Observable<any>{
     return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordini",{
