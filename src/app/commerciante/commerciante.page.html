@@ -16,6 +16,39 @@
   </ion-toolbar>
 </ion-header>
 
+
+<ion-tabs>
+  <ion-tab-bar slot="top">
+    <ion-tab-button routerLink ="../commerciante-gestisci-ordini" tab="gestisci">
+      <ion-icon name="basket"></ion-icon>
+      <ion-label>Gestisci ordini</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLink ="../commerciante/modifica-negozio" tab="modifica">
+      <ion-icon name="home"></ion-icon>
+      <ion-label >Modifica negozio</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+<ion-content>
+  <div>
+    <ion-button id ="logout_button"(click)="logout()">Logout</ion-button>
+  </div>
+<div id="container">
+  <table>
+    <thead>
+      <th>id:  </th>
+      <th>nome:  </th>
+      <th>indirizzo:  </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>cane </td>
+        <td>gatto </td>
+        <td>pene </td>
+      </tr>
+    </tbody>
+  </table>
 <ion-content>
   <div id="container">
     <ion-label>Tabella Ordini</ion-label>
