@@ -1,39 +1,40 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Commerciante</ion-title>
+    <ion-buttons>
+      <ion-tab-button id="ordini" routerLink ="./gestisci-ordini" tab="gestisci">
+        <ion-icon name="basket"></ion-icon>
+        <ion-label>Gestisci ordini</ion-label>
+      </ion-tab-button>
+      <ion-tab-button id="negozio" routerLink ="./gestisci-negozio" tab="modifica">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Modifica negozio</ion-label>
+      </ion-tab-button>
+      <ion-button id ="logout_button" (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
-
-<ion-tabs>
-  <ion-tab-bar slot="top">
-    <ion-tab-button routerLink ="../commerciante-gestisci-ordini" tab="gestisci">
-      <ion-icon name="basket"></ion-icon>
-      <ion-label>Gestisci ordini</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button routerLink ="../commerciante-modifica-negozio" tab="modifica">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Modifica negozio</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
 <ion-content>
-
-<div id="container">
-  <table>
-    <thead>
-      <th>id:  </th>
-      <th>nome:  </th>
-      <th>indirizzo:  </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>cane </td>
-        <td>gatto </td>
-        <td>pene </td>
-      </tr>
-    </tbody>
-  </table>
+  <div id="container">
+    <ion-label>Tabella Ordini</ion-label>
+      <table>
+        <thead>
+          <th>id: </th>
+          <th>numero ordine: </th>
+          <th>soldi: </th>
+          <th>destinazione: </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ordine of ordini" >
+            <td>{{ordine.id}}</td>
+            <td>{{ordine.numeroOrdine}}</td>
+            <td>{{ordine.soldi}}</td>
+            <td>{{ordine.destinazioneStringa}}</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 </ion-content>
+

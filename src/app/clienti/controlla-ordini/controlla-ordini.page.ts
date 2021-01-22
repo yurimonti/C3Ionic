@@ -16,6 +16,20 @@ export class ControllaOrdiniPage implements OnInit {
   ngOnInit() {
     this.getOrdini();
   }
+
+  public settaDest(ord:Array<Ordine>):void{
+    let ordiniA:Ordine[]= [];
+    let fun = function settaDestinazioneStringa(ord:Ordine) {
+      if(ord.destinazione==null)ord.destinazioneStringa=ord.emittente.nome;
+      else ord.destinazioneStringa=ord.destinazione.nome;
+    }
+    ord.forEach(function(o){
+      fun(o);
+      ordiniA.push(o);
+    });
+    this._ordini=ordiniA;
+  }
+
   public get idOrdine(): number {
     return this._idOrdine;
   }
@@ -31,7 +45,7 @@ export class ControllaOrdiniPage implements OnInit {
 
   public getOrdiniDaRitirare(){
     return this.clienteService.getOrdiniDaRitirare().subscribe((data:Array<Ordine>)=>{
-      this._ordini=data;
+      this.settaDest(data);
     })
   }
 
@@ -50,13 +64,13 @@ export class ControllaOrdiniPage implements OnInit {
 
   public getOrdiniNonCompletati(){
     return this.clienteService.getOrdiniNonCompletati().subscribe((data:Array<Ordine>)=>{
-      this._ordini=data;
+      this.settaDest(data);
     })
   }
 
   public getOrdini(){
     return this.clienteService.getOrdini().subscribe((data:Array<Ordine>)=>{
-      this._ordini=data;
+      this.settaDest(data);
     })
   }
   public get ordini(): Array<Ordine> {
