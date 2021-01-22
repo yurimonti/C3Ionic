@@ -8,6 +8,10 @@ const routes: Routes = [
     path: '',
     component: CommerciantePage
   },
+  {
+    path: 'modifica-negozio',
+    loadChildren: () => import('./modifica-negozio/modifica-negozio.module').then( m => m.ModificaNegozioPageModule)
+  },
 ];
 
 @NgModule({

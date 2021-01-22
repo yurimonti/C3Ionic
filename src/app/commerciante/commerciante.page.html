@@ -12,14 +12,16 @@
       <ion-label>Gestisci ordini</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button routerLink ="../commerciante-modifica-negozio" tab="modifica">
+    <ion-tab-button routerLink ="../commerciante/modifica-negozio" tab="modifica">
       <ion-icon name="home"></ion-icon>
-      <ion-label>Modifica negozio</ion-label>
+      <ion-label >Modifica negozio</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
 <ion-content>
-
+  <div>
+    <ion-button id ="logout_button"(click)="logout()">Logout</ion-button>
+  </div>
 <div id="container">
   <table>
     <thead>
