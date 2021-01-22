@@ -8,13 +8,13 @@ export class Ordine{
     private _destinazione: Locker;
     private _prodotti: Array<Prodotto>;
     private _soldi: number;
-    private _destinazioneStringa: any;
+    private _destinazioneStringa: string;
     constructor(){}
     
-    public get destinazioneStringa(): any {
+    public get destinazioneStringa(): string {
         return this._destinazioneStringa;
     }
-    public set destinazioneStringa(value: any) {
+    public set destinazioneStringa(value: string) {
         this._destinazioneStringa = value;
     }
     public get id(): number {
