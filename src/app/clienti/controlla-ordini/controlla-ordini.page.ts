@@ -11,10 +11,19 @@ export class ControllaOrdiniPage implements OnInit {
   private _ordini: Array<Ordine>;
   private _filtro: string;
   private _idOrdine: number;
+  private _idOrdineInfo: number;
   constructor(private clienteService:ClienteService) {}
   
   ngOnInit() {
     this.getOrdini();
+  }
+
+  
+  public get idOrdineInfo(): number {
+    return this._idOrdineInfo;
+  }
+  public set idOrdineInfo(value: number) {
+    this._idOrdineInfo = value;
   }
 
   public settaDest(ord:Array<Ordine>):void{
@@ -28,6 +37,12 @@ export class ControllaOrdiniPage implements OnInit {
       ordiniA.push(o);
     });
     this._ordini=ordiniA;
+  }
+
+  public getOrdineInfo(){
+    return this.clienteService.getOrdine(this._idOrdineInfo).subscribe((data:Ordine)=>{
+      alert(data.toString());
+    })
   }
 
   public get idOrdine(): number {
