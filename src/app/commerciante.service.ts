@@ -54,9 +54,8 @@ export class CommercianteService {
     this._sharedIdCommerciante= v;
   }
   public getProdotti(){
-    let id = this.sharedIdCommerciante.toString();
     return this.http.get(this.url+"/prodotti/"+this._sharedIdCommerciante,{
-      params:{id},
+      params:{},
       headers:this.httpHeaders,
       responseType:'json'
     })
