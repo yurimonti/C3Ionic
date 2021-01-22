@@ -40,8 +40,8 @@ export class ControllaOrdiniPage implements OnInit {
   }
 
   public getOrdineInfo(){
-    return this.clienteService.getOrdine(this._idOrdineInfo).subscribe((data:Ordine)=>{
-      alert(data.toString());
+    return this.clienteService.getOrdineInfo(this._idOrdineInfo).subscribe((data:Ordine)=>{
+      alert(data);
     })
   }
 

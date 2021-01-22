@@ -23,6 +23,13 @@ export class ClienteService {
     })
   }
 
+  public getOrdineInfo(idOrdine:number):Observable<any>{
+    return this.http.get(this.url+"/ordini/"+idOrdine+"/informazioni",{
+      headers:this.httpHeaders,
+      responseType:'text'
+    })
+  }
+
   public getOrdini():Observable<any>{
     return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordini",{
       headers:this.httpHeaders,
