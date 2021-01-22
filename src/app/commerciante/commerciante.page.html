@@ -6,17 +6,17 @@
         <ion-icon name="basket"></ion-icon>
         <ion-label>Gestisci ordini</ion-label>
       </ion-tab-button>
-      <ion-tab-button id="negozio" routerLink ="./gestisci-negozio" tab="modifica">
+      <ion-tab-button id="negozio" routerLink ="./modifica-negozio" tab="modifica">
         <ion-icon name="home"></ion-icon>
         <ion-label>Modifica negozio</ion-label>
       </ion-tab-button>
-      <ion-button id ="logout_button" (click)="logout()">Logout</ion-button>
-    </ion-buttons>
-    
+        </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <div>
+    <ion-button (click)="logout()">Logout</ion-button>
+  </div>
   <div id="container">
     <ion-label>Tabella Ordini</ion-label>
       <table>

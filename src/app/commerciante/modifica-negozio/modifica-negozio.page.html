@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modificaNegozio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <table>
+      <thead>
+        <th>id:  </th>
+        <th>nome:  </th>
+        <th>descrizione:  </th>
+        <th>numero:  </th>
+        <th>prezzo:  </th>
+        <th>serialCode:  </th>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let prodotto of prodotti">
+          <td>{{prodotto.id}} </td>
+          <td>{{prodotto.nome}} </td>
+          <td>{{prodotto.descrizione}} </td>
+          <td>{{prodotto.numero}} </td>
+          <td>{{prodotto.prezzo}} </td>
+          <td>{{prodotto.serialCode}} </td>
+        </tr>
+      </tbody>
+    </table>
+    <ion-button>Aggiungi prodotto</ion-button>
+    <ion-button>Rimuovi prodotto</ion-button>
+    </div>
+</ion-content>

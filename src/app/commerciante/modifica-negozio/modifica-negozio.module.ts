@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GestisciNegozioPageRoutingModule } from './gestisci-negozio-routing.module';
+import { ModificaNegozioPageRoutingModule } from './modifica-negozio-routing.module';
 
-import { GestisciNegozioPage } from './gestisci-negozio.page';
+import { ModificaNegozioPage } from './modifica-negozio.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GestisciNegozioPageRoutingModule
+    ModificaNegozioPageRoutingModule
   ],
-  declarations: [GestisciNegozioPage]
+  declarations: [ModificaNegozioPage]
 })
-export class GestisciNegozioPageModule {}
+export class ModificaNegozioPageModule {}
