@@ -15,21 +15,20 @@ export class ModificaNegozioPage implements OnInit {
     this.getProdotti();
   }
 
-public get prodotti() : Array<Prodotto> {
-  return this._prodotti;
-}
+  public get prodotti() : Array<Prodotto> {
+    return this._prodotti;
+  }
 
-public set prodotti(v : Array<Prodotto>) {
-  this._prodotti = v;
-}
+  public set prodotti(v : Array<Prodotto>) {
+    this._prodotti = v;
+  }
 
 
-  
-  public getProdotti(){
-    this.commercianteService.getProdotti().subscribe((data:Array<Prodotto>)=>{
-      this._prodotti=data
-    })
     
+  public getProdotti(){
+    this.commercianteService.getProdottiNegozio().subscribe((data:Array<Prodotto>)=>{
+      this._prodotti=data;
+    })
   }
   
 }
