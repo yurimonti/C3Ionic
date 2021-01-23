@@ -21,6 +21,7 @@
           <th>soldi: </th>
           <th>emittente: </th>
           <th>destinazione: </th>
+          <th>stato: </th>
         </thead>
         <tbody>
           <tr *ngFor="let ordine of ordini" >
@@ -28,16 +29,21 @@
             <td>{{ordine.numeroOrdine}}</td>
             <td>{{ordine.soldi}}</td>
             <td>{{ordine.emittente.nome}}</td>
-            <td>{{ordine.destinazione.nome}}</td>
+            <td>{{ordine.destinazioneStringa}}</td>
+            <td>{{ordine.statoOrdine}}</td>
           </tr>
         </tbody>
       </table>
+    </ion-item>
+    <ion-item>
       <ion-label position="floating">Id Ordine da Ritirare</ion-label>
-      <ion-input [(ngModel)]= "idOrdine" [name] = "['idOrdine']"></ion-input>
+      <ion-input [(ngModel)]= "idOrdine"></ion-input>
       <ion-button (click)="setRitirato()" >Ritira Ordine</ion-button>
+    </ion-item>
+    <ion-item>
       <ion-label position="floating">Id Ordine da vedere</ion-label>
-      <ion-input [(ngModel)]= "idOrdine" [name] = "['idOrdine']"></ion-input>
-      <ion-button>Vedi Dettagli Ordine</ion-button>
+      <ion-input [(ngModel)]= "idOrdineInfo"></ion-input>
+      <ion-button (click)="getOrdineInfo()" >Vedi Dettagli Ordine</ion-button>
     </ion-item>
     <ion-button routerLink="/clienti" >Home Clienti</ion-button>
   </div>

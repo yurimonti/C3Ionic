@@ -9,27 +9,26 @@ import { Prodotto } from 'src/app/prodotto';
 })
 export class ModificaNegozioPage implements OnInit {
   private _prodotti:Array<Prodotto>;
-  constructor(private CommercianteService:CommercianteService) { }
+  constructor(private commercianteService:CommercianteService) { }
 
   ngOnInit() {
     this.getProdotti();
   }
 
-public get prodotti() : Array<Prodotto> {
-  return this._prodotti;
-}
+  public get prodotti() : Array<Prodotto> {
+    return this._prodotti;
+  }
 
-public set prodotti(v : Array<Prodotto>) {
-  this._prodotti = v;
-}
+  public set prodotti(v : Array<Prodotto>) {
+    this._prodotti = v;
+  }
 
 
-  
-  public getProdotti(){
-    this.CommercianteService.getProdotti().subscribe((data:Array<Prodotto>)=>{
-      this._prodotti=data
-    })
     
+  public getProdotti(){
+    this.commercianteService.getProdottiNegozio().subscribe((data:Array<Prodotto>)=>{
+      this._prodotti=data;
+    })
   }
   
 }

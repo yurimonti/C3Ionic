@@ -8,9 +8,28 @@ export class Ordine{
     private _destinazione: Locker;
     private _prodotti: Array<Prodotto>;
     private _soldi: number;
+    private _statoOrdine: any;
     private _destinazioneStringa: string;
     constructor(){}
     
+    public getProdottiStringa():string{
+        let fun = function prod(product:Prodotto) {
+            return "codice : "+product.serialCode+"; nome: "+product.nome+"; prezzo al singolo: "+product.prezzo+
+            "quantità: "+product.numero+";";
+        }
+        let s = "";
+        this.prodotti.forEach(function(p){
+            s = s +fun(p)+"\n";
+        })
+        return s;
+    }
+
+    public get statoOrdine(): any {
+        return this._statoOrdine;
+    }
+    public set statoOrdine(value: any) {
+        this._statoOrdine = value;
+    }
     public get destinazioneStringa(): string {
         return this._destinazioneStringa;
     }

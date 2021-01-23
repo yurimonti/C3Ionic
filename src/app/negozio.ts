@@ -10,31 +10,9 @@ export class Negozio{
     private _prodotti:Array<Prodotto>;
     private _ordini:Array<Ordine>;
     
-    constructor(
-        /* id:number, */
-        nome:string,
-        descrizione:string,
-        indirizzo:string,
-        orario:string
-        /* prodotti:Array<Prodotto>,
-        ordini:Array<Ordine> */
-        ){
+    constructor(){
     }
     
-    /* public prodottiString():string{
-        let stampaProdotti ="";
-        this.prodotti.forEach((p:Prodotto) =>{
-            stampaProdotti+p.toString()+"--"
-        });
-        return stampaProdotti;
-    } */
-
-    /* public setProdotti(){
-        this.negozioService.getProdotti(this.id).subscribe((data:Array<Prodotto>)=>{
-            this.prodotti = data;
-        });
-    } */
-
 
     public provaStampa(){
         let stringa= "";
