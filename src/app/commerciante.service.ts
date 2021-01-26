@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommercianteService {
   private _sharedIdCommerciante:number;
-  private url = "http://localhost:8080";
+  private url = "http://localhost:8080/commercianti";
   private httpHeaders = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
 
   constructor(private http:HttpClient) { }
@@ -18,28 +18,28 @@ export class CommercianteService {
   }
 
   public getOrdini():Observable<any>{
-    return this.http.get(this.url+"/commercianti/"+this._sharedIdCommerciante+"/ordiniInNegozio",{
+    return this.http.get(this.url+"/"+this._sharedIdCommerciante+"/ordiniInNegozio",{
       headers:this.httpHeaders,
       responseType:'json'
     })
   }
 
   public getOrdiniNonCompletati():Observable<any>{
-    return this.http.get(this.url+"/commercianti/"+this._sharedIdCommerciante+"/ordiniInNegozioNonCompletati",{
+    return this.http.get(this.url+"/"+this._sharedIdCommerciante+"/ordiniInNegozioNonCompletati",{
       headers:this.httpHeaders,
       responseType:'json'
     })
   }
 
   public getOrdiniPerRitiro():Observable<any>{
-    return this.http.get(this.url+"/commercianti/"+this._sharedIdCommerciante+"/ordiniInNegozioPerRitiro",{
+    return this.http.get(this.url+"/"+this._sharedIdCommerciante+"/ordiniInNegozioPerRitiro",{
       headers:this.httpHeaders,
       responseType:'json'
     })
   }
 
   public getOrdiniDaSoddisfare():Observable<any>{
-    return this.http.get(this.url+"/commercianti/"+this._sharedIdCommerciante+"/ordiniDaSoddisfare",{
+    return this.http.get(this.url+"/"+this._sharedIdCommerciante+"/ordiniDaSoddisfare",{
       headers:this.httpHeaders,
       responseType:'json'
     })
@@ -54,7 +54,7 @@ export class CommercianteService {
     this._sharedIdCommerciante= v;
   }
   public getProdottiNegozio(){
-    return this.http.get(this.url+"/commercianti/"+this._sharedIdCommerciante+"/prodotti",{
+    return this.http.get(this.url+"/"+this._sharedIdCommerciante+"/prodotti",{
       headers:this.httpHeaders,
       responseType:'json'
     })
@@ -62,15 +62,15 @@ export class CommercianteService {
 
   public eliminaProdotto(id:number){
       let idProdotto =id.toString();
-    return this.http.delete(this.url+"/commercianti/"+this._sharedIdCommerciante+"/eliminaProdotto",{
+    return this.http.delete(this.url+"/"+this._sharedIdCommerciante+"/eliminaProdotto",{
       headers:this.httpHeaders,
       params: {idProdotto}
     })
   }
-  public aggiungiProdotto(nome:string,descrizione:string,prezzonum:number,quantita:number){
-    let prezzo = prezzonum.toString();
+  public aggiungiProdotto(nome:string,descrizione:string,prezzoNum:number,quantita:number){
+    let prezzo = prezzoNum.toString();
     let numero = quantita.toString();
-    return this.http.post(this.url+"/commercianti/"+this._sharedIdCommerciante+"/aggiungiProdotto",null,{
+    return this.http.post(this.url+"/"+this._sharedIdCommerciante+"/aggiungiProdotto",null,{
       headers:this.httpHeaders,
       params: {nome,descrizione,prezzo,numero}
     })
@@ -79,7 +79,7 @@ export class CommercianteService {
     let idProdotto = id.toString();
     let numero = quantita.toString();
     let aggiunta = "true";
-    return this.http.patch(this.url+"/commercianti/"+this._sharedIdCommerciante+"/modificaProdotto",null,{
+    return this.http.patch(this.url+"/"+this._sharedIdCommerciante+"/modificaProdotto",null,{
       headers:this.httpHeaders,
       params: {idProdotto,numero,aggiunta}
     })
@@ -88,7 +88,7 @@ export class CommercianteService {
     let idProdotto = id.toString();
     let numero = quantita.toString();
     let aggiunta = "false";
-    return this.http.patch(this.url+"/commercianti/"+this._sharedIdCommerciante+"/modificaProdotto",null,{
+    return this.http.patch(this.url+"/"+this._sharedIdCommerciante+"/modificaProdotto",null,{
       headers:this.httpHeaders,
       params: {idProdotto,numero,aggiunta},
       responseType:'json'

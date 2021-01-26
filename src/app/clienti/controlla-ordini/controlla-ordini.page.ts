@@ -65,8 +65,8 @@ export class ControllaOrdiniPage implements OnInit {
   }
 
   public setRitirato(){
-    return this.clienteService.settaRitirato(this._idOrdine).subscribe((data:string)=>{
-      alert(data);
+    return this.clienteService.settaRitirato(this._idOrdine).subscribe(()=>{
+      alert("ritirato");
     })
   }
 

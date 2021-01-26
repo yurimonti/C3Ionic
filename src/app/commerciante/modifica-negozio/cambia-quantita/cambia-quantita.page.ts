@@ -1,5 +1,4 @@
 import { Prodotto } from './../../../prodotto';
-import { data } from 'jquery';
 import { Router } from '@angular/router';
 import { CommercianteService } from 'src/app/commerciante.service';
 import { Component, OnInit } from '@angular/core';
