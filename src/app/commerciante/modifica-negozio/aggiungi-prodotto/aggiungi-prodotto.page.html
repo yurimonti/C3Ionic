@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>aggiungiProdotto</ion-title>
+    <ion-button id ="logout_button"(click)="logout()">Logout</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div  id="container">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]= "nome" [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descrizione</ion-label>
+      <ion-input [(ngModel)]= "descrizione" [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Prezzo</ion-label>
+      <ion-input [(ngModel)]= "prezzo" [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Quantità</ion-label>
+      <ion-input [(ngModel)]= "quantita" [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-button (click)="aggiungi()">aggiungi</ion-button>
+    <ion-button (click)="indietro()">Indietro</ion-button>
+
+    </div>
+</ion-content>
