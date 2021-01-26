@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>modificaNegozio</ion-title>
+    <ion-button id ="logout_button"(click)="logout()">Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -26,7 +27,10 @@
         </tr>
       </tbody>
     </table>
-    <ion-button>Aggiungi prodotto</ion-button>
-    <ion-button>Rimuovi prodotto</ion-button>
+    <ion-button routerLink="/commerciante/modifica-negozio/aggiungi-prodotto">Aggiungi prodotto</ion-button>
+    <ion-button routerLink="/commerciante/modifica-negozio/elimina-prodotto">Rimuovi prodotto</ion-button>
+    <ion-button routerLink="/commerciante/modifica-negozio/cambia-quantita">Cambia quantità</ion-button>
+    <ion-button (click)="indietro()">Indietro</ion-button>
+
   </div>
 </ion-content>

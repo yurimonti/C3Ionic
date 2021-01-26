@@ -60,4 +60,39 @@ export class CommercianteService {
     })
   }
 
+  public eliminaProdotto(id:number){
+      let idProdotto =id.toString();
+    return this.http.delete(this.url+"/commercianti/"+this._sharedIdCommerciante+"/eliminaProdotto",{
+      headers:this.httpHeaders,
+      params: {idProdotto}
+    })
+  }
+  public aggiungiProdotto(nome:string,descrizione:string,prezzonum:number,quantita:number){
+    let prezzo = prezzonum.toString();
+    let numero = quantita.toString();
+    return this.http.post(this.url+"/commercianti/"+this._sharedIdCommerciante+"/aggiungiProdotto",null,{
+      headers:this.httpHeaders,
+      params: {nome,descrizione,prezzo,numero}
+    })
+  }
+  public aggiungiQuantita(id:number,quantita:number){
+    let idProdotto = id.toString();
+    let numero = quantita.toString();
+    let aggiunta = "true";
+    return this.http.patch(this.url+"/commercianti/"+this._sharedIdCommerciante+"/modificaProdotto",null,{
+      headers:this.httpHeaders,
+      params: {idProdotto,numero,aggiunta}
+    })
+  }
+  public diminuisciQuantita(id:number,quantita:number){
+    let idProdotto = id.toString();
+    let numero = quantita.toString();
+    let aggiunta = "false";
+    return this.http.patch(this.url+"/commercianti/"+this._sharedIdCommerciante+"/modificaProdotto",null,{
+      headers:this.httpHeaders,
+      params: {idProdotto,numero,aggiunta},
+      responseType:'json'
+    })
+  }
+
 }
