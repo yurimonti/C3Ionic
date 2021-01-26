@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class ClienteService {
   private _sharedIdCliente:number;
   private url = "http://localhost:8080";
+  private clienti = "/clienti";
   private httpHeaders = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
 
   constructor(private http:HttpClient) { }
@@ -16,41 +17,43 @@ export class ClienteService {
     this._sharedIdCliente=null;
   }
   
-  public getOrdine(idOrdine:number):Observable<any>{
+  /* public getOrdine(idOrdine:number):Observable<any>{
     return this.http.get(this.url+"/ordini/"+idOrdine,{
       headers:this.httpHeaders,
       responseType:'json'
     })
-  }
+  } */
 
-  public getOrdineInfo(idOrdine:number):Observable<any>{
-    return this.http.get(this.url+"/ordini/"+idOrdine+"/informazioni",{
+  public getOrdineInfo(ordineId:number):Observable<any>{
+    let idOrdine:string = ordineId.toString();
+    return this.http.get(this.url+this.clienti+"/"+this._sharedIdCliente+"/ordini/informazioni",{
       headers:this.httpHeaders,
+      params:{idOrdine},
       responseType:'text'
     })
   }
 
   public getOrdini():Observable<any>{
-    return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordini",{
+    return this.http.get(this.url+this.clienti+"/"+this._sharedIdCliente+"/ordini",{
       headers:this.httpHeaders,
       responseType:'json'
     })
   }
   public getOrdiniNonCompletati():Observable<any>{
-    return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordiniNonCompletati",{
+    return this.http.get(this.url+this.clienti+"/"+this._sharedIdCliente+"/ordiniNonCompletati",{
       headers:this.httpHeaders,
       responseType:'json'
     })
   }
   public getOrdiniDaRitirare():Observable<any>{
-    return this.http.get(this.url+"/clienti/"+this._sharedIdCliente+"/ordiniDaRitirare",{
+    return this.http.get(this.url+this.clienti+"/"+this._sharedIdCliente+"/ordiniDaRitirare",{
       headers:this.httpHeaders,
       responseType:'json'
     })
   }
 
   public settaRitirato(idOrdine:number):Observable<any>{
-    return this.http.patch(this.url+"/clienti/"+this._sharedIdCliente+"/ritiraOrdine/"+idOrdine,null,{
+    return this.http.patch(this.url+this.clienti+"/"+this._sharedIdCliente+"/ritiraOrdine/"+idOrdine,null,{
       headers:this.httpHeaders,
       responseType:'text'
     })
@@ -79,7 +82,7 @@ export class ClienteService {
 
   public setEmittente(numberId:number):Observable<any>{
     let idNegozio = numberId.toString();
-    return this.http.post(this.url+"/clienti/setEmittente",null,{
+    return this.http.post(this.url+this.clienti+"/setEmittente",null,{
       headers:this.httpHeaders,
       params:{idNegozio},
       responseType:'text'
@@ -88,7 +91,7 @@ export class ClienteService {
 
   public setDestinazione(numberId:number):Observable<any>{
     let idLocker = numberId.toString();
-    return this.http.post(this.url+"/clienti/setDestinazione",null,{
+    return this.http.post(this.url+this.clienti+"/setDestinazione",null,{
       headers:this.httpHeaders,
       params:{idLocker},
       responseType:'text'
@@ -113,7 +116,7 @@ export class ClienteService {
   public setProdotto(numberIdProdotto:number,numberNumero:number):Observable<any>{
     let idProdotto = numberIdProdotto.toString();
     let number = numberNumero.toString();
-    return this.http.post(this.url+"/clienti/setProdotto",null,{
+    return this.http.post(this.url+this.clienti+"/setProdotto",null,{
       headers:this.httpHeaders,
       params:{idProdotto,number},
       responseType:'text'
