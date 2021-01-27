@@ -95,4 +95,9 @@ export class ControllaOrdiniPage implements OnInit {
     this._ordini = value;
   }
 
+  public aggiorna(){
+    this.getOrdini();
+
+  }
+
 }

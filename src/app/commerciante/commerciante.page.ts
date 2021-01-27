@@ -52,4 +52,8 @@ export class CommerciantePage implements OnInit {
     this.router.navigate(["../login"]);
   }
 
+  public aggiorna(){
+    this.getOrdiniDaSoddisfare();
+  }
+
 }

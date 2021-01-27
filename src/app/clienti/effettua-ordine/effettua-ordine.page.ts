@@ -137,4 +137,9 @@ export class EffettuaOrdinePage implements OnInit {
     })
   }
 
+  public aggiorna(){
+    this.getNegozi();
+    this.getLockers();
+  }
+
 }
