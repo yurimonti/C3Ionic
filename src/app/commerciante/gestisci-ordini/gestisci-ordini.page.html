@@ -7,6 +7,37 @@
 
 <ion-content>
   <div id="container">
+    <ion-item>
+      <ion-label>Filtra Ordini</ion-label>
+      <ion-select id="selecter" placeholder="Seleziona Uno" (ionChange)="selectFilter($event)" [(ngModel)] = "filtro">
+        <ion-select-option value="tutti">Tutti</ion-select-option>
+        <ion-select-option value="non completati">Non completati </ion-select-option>
+        <ion-select-option value="da soddisfare">Da Soddisfare </ion-select-option>
+        <ion-select-option value="per ritiro">Per Ritiro </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tabella Ordini</ion-label>
+        <table>
+          <thead>
+            <th>id: </th>
+            <th>numero ordine: </th>
+            <th>soldi: </th>
+            <th>destinazione: </th>
+            <th>stato: </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ordine of ordini" >
+              <td>{{ordine.id}}</td>
+              <td>{{ordine.numeroOrdine}}</td>
+              <td>{{ordine.soldi}}</td>
+              <td>{{ordine.destinazioneStringa}}</td>
+              <td>{{ordine.statoOrdine}}</td>
+            </tr>            
+          </tbody>
+        </table>
+    </ion-item>
+      <ion-button (click)="getOrdini()">Aggiorna tabella</ion-button>
   <ion-item>
     <ion-label position="floating"> ID Ordine</ion-label>
     <ion-input [(ngModel)]= "id" [clearOnEdit] = "['false']" [required] = "['true']"></ion-input>
