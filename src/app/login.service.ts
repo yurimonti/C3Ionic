@@ -1,3 +1,4 @@
+import { CorriereService } from './corriere.service';
 import { CommercianteService } from './commerciante.service';
 import { HttpClient, HttpClientModule, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,7 +13,7 @@ export class LoginService {
   private httpHeader:HttpHeaders = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
   private _sharedId:number;
 
-  constructor(private http:HttpClient,private clienteService:ClienteService,private commercianteService :CommercianteService) { }
+  constructor(private http:HttpClient,private clienteService:ClienteService,private corriereService:CorriereService, private commercianteService :CommercianteService) { }
 
   public get sharedId() : number {
     return this._sharedId;
@@ -26,6 +27,7 @@ export class LoginService {
     this._sharedId = v;
     if(type=="cliente")this.clienteService.sharedIdCliente=this.sharedId;
     if(type=="commerciante")this.commercianteService.sharedIdCommerciante=this.sharedId;
+    if(type=="corriere")this.corriereService.shareIdCorriere=this.sharedId;
   }
 
   public verifyLogin(type:string,email:string,password:string):Observable<any> {

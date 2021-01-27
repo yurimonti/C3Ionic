@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>gestisciOrdini</ion-title>
+    <ion-button id ="logout_button"(click)="logout()">Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div id="container">
+  <ion-item>
+    <ion-label position="floating"> ID prodotto</ion-label>
+    <ion-input [(ngModel)]= "id" [clearOnEdit] = "['false']" [required] = "['true']"></ion-input>
+  </ion-item>
+  <ion-button (click)= "ritiraNegozio()" >Ritira nel negozio</ion-button>
+  <ion-button (click)= "inviaChiamata()" >Effettua chiamata al Corriere</ion-button>
+  <ion-button (click)="indietro()">Indietro</ion-button>
+</div>
 </ion-content>
