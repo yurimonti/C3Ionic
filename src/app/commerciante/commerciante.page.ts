@@ -42,7 +42,6 @@ export class CommerciantePage implements OnInit {
   public getOrdiniDaSoddisfare(){
     return this.commercianteService.getOrdiniDaSoddisfare().subscribe((data:Array<Ordine>)=>{
       this.settaDest(data);
-      //this._ordini=data;
     })
   }
 

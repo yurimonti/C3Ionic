@@ -40,9 +40,5 @@ export class ModificaNegozioPage implements OnInit {
   public indietro(){
     this.router.navigate(["../../../commerciante"])
   }
-
-  public aggiorna(){
-    this.getProdotti();
-  }
   
 }
