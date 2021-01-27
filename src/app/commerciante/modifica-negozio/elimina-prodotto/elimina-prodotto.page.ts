@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { data } from 'jquery';
 import { CommercianteService } from 'src/app/commerciante.service';
 
 @Component({

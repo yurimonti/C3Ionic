@@ -95,4 +95,19 @@ export class CommercianteService {
     })
   }
 
+  public setOrdineRitiroInNegozio(id:number){
+    let idOrdine = id.toString();
+    return this.http.patch(this.url+"/commercianti/"+this._sharedIdCommerciante+"/ordini/ritiroInNegozio",null,{
+      headers:this.httpHeaders,
+      params:{idOrdine}
+    })
+  }
+  public inviaChiamata(id:number){
+    let idProdotto=id.toString();
+    return this.http.post(this.url+"/commercianti/"+this._sharedIdCommerciante+"/inviaChiamata",null,{
+      headers:this.httpHeaders,
+      params:{idProdotto}
+    })
+  }
+
 }

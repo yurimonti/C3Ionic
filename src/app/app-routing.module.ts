@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'commerciante',
     loadChildren: () => import('./commerciante/commerciante.module').then( m => m.CommerciantePageModule)
+  },  {
+    path: 'corriere',
+    loadChildren: () => import('./corriere/corriere.module').then( m => m.CorrierePageModule)
   },
+
 ];
 
 
