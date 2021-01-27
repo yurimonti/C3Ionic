@@ -31,3 +31,12 @@
   #container a {
     text-decoration: none;
   }
+  #logout_button{
+    position: absolute;
+    transform: translateY(-50%);
+    left: 92%; 
+    right: 0%;
+    top: 50%;
+    width: 5%;
+    text-align: center;
+  }
