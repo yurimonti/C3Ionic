@@ -44,4 +44,7 @@ export class CorrierePage implements OnInit {
   }
   
 
+  public aggiorna(){
+    
+  }
 }
