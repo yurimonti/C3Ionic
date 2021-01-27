@@ -46,6 +46,7 @@ export class LoginPage implements OnInit {
   private routeTypeOfUser():void{
     if(this.type=="cliente")this.route.navigate(['../clienti']);
     if(this.type=="commerciante")this.route.navigate(['../commerciante']);
+    if(this.type=="corriere")this.route.navigate(['../corriere']);
   }
 
   public alertType() {
