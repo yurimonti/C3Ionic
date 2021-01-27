@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>accettaOrdini</ion-title>
+    <ion-button id="logout_button" (click)="logout()">Logout</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-item>
+      <ion-label position="floating">ID chiamata</ion-label>
+      <ion-input [(ngModel)]= "id" [required] = "['true']"></ion-input>
+    </ion-item>
+    <ion-button (click)= "accettaChiamata()" >Accetta chiamata</ion-button>
+    <ion-button (click)= "aggiorna()">Aggiorna tabella</ion-button>
+    <ion-button (click)= "indietro()">Indietro</ion-button>
+  </div>
+</ion-content>

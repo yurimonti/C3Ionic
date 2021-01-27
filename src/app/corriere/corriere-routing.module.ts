@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: CorrierePage
+  },
+  {
+    path: 'ordini-accettati',
+    loadChildren: () => import('./ordini-accettati/ordini-accettati.module').then( m => m.OrdiniAccettatiPageModule)
+  },
+  {
+    path: 'accetta-ordini',
+    loadChildren: () => import('./accetta-ordini/accetta-ordini.module').then( m => m.AccettaOrdiniPageModule)
   }
 ];
 
