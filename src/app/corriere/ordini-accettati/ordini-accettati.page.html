@@ -1,20 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ordiniAccettati</ion-title>
+    <ion-title>Gestisci Ordini</ion-title>
     <ion-button id="logout_button" (click)="logout()">Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="container">
+    <ion-label>Filtra Ordini</ion-label>
+    <ion-select id="selecter" placeholder="Seleziona Uno" (ionChange)="selectFilter($event)" [(ngModel)] = "filtro">
+      <ion-select-option value="tutti">Tutti</ion-select-option>
+      <ion-select-option value="in consegna">In Consegna</ion-select-option>
+      <ion-select-option value="consegnati">Consegnati</ion-select-option>
+      <ion-select-option value="completati">Completati </ion-select-option>
+      <ion-select-option value="da ritirare">Da Ritirare </ion-select-option>
+    </ion-select>
+    <ion-label>Tabella Ordini</ion-label>
+      <table>
+        <thead>
+          <th>id: </th>
+          <th>numero ordine: </th>
+          <th>soldi: </th>
+          <th>destinazione: </th>
+          <th>stato: </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ordine of ordini" >
+            <td>{{ordine.id}}</td>
+            <td>{{ordine.numeroOrdine}}</td>
+            <td>{{ordine.soldi}}</td>
+            <td>{{ordine.destinazione.nome}}</td>
+            <td>{{ordine.statoOrdine}}</td>
+          </tr>            
+        </tbody>
+      </table>
     <ion-item>
-      <ion-label position="floating">ID chiamata</ion-label>
+      <ion-label position="floating">ID ordine</ion-label>
       <ion-input [(ngModel)]= "id" [required] = "['true']"></ion-input>
     </ion-item>
-    <ion-button (click)= "ritiraOrdine()" >Ritira ordine</ion-button>
-    <ion-button (click)= "consegnaOrdine()" >Consegna ordine</ion-button>
-    <ion-button (click)= "aggiorna()">Aggiorna tabella</ion-button>
-    <ion-button (click)= "indietro()">Indietro</ion-button>
-
+    <ion-button (click)="ritiraOrdine()" >Ritira ordine</ion-button>
+    <ion-button (click)="consegnaOrdine()" >Consegna ordine</ion-button>
+    <ion-button (click)="getInfoOrdine()" >Vedi Informazioni</ion-button>
+    <ion-button (click)="getOrdini()">Aggiorna tabella</ion-button>
+    <ion-button (click)="indietro()">Indietro</ion-button>
   </div>
 </ion-content>

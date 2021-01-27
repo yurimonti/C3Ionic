@@ -8,15 +8,32 @@
       </ion-tab-button>
       <ion-tab-button id="negozio" routerLink ="./ordini-accettati" tab="modifica">
         <ion-icon name="home"></ion-icon>
-        <ion-label>Ordini accettati</ion-label>
+        <ion-label>Gestisci Ordini</ion-label>
       </ion-tab-button>
-        </ion-buttons>
-        <ion-button id="logout_button" (click)="logout()">Logout</ion-button>
+      <ion-button id ="logout_button" (click)="logout()">Logout</ion-button>
+    </ion-buttons>
   </ion-toolbar>
-  <ion-button id="logout_button" (click)="logout()">Logout</ion-button>
 
 </ion-header>
 
 <ion-content>
-
+  <div id="container">
+    <table>
+      <thead>
+        <th>id:  </th>
+        <th>nome:  </th>
+        <th>indirizzo:  </th>
+        <th>id Ordine:  </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let chiamata of chiamate">
+          <td>{{chiamata.id}} </td>
+          <td>{{chiamata.negozio.nome}} </td>
+          <td>{{chiamata.negozio.indirizzo}} </td>
+          <td>{{chiamata.ordine.id}} </td>
+        </tr>
+      </tbody>
+    </table>
+    <ion-button (click)="getChiamate()" >Aggiorna tabella</ion-button>
+  </div>
 </ion-content>

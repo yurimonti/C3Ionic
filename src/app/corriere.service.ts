@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class CorriereService {
   private _sharedIdCorriere:number;
-  private url = "http://localhost:8080";
+  private url = "http://localhost:8080/corrieri";
   private httpHeaders = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
 
   constructor(private http:HttpClient) { }
@@ -20,33 +21,81 @@ export class CorriereService {
   public get shareIdCorriere() : number {
     return this._sharedIdCorriere;
   }
+
+  public getInfoOrdine(id:number){
+    let idOrdine = id.toString();
+    return this.http.get(this.url+"/"+this._sharedIdCorriere+"/ordini/informazioni",{
+      headers:this.httpHeaders,
+      params:{idOrdine},
+      responseType:'text'
+    })
+
+  }
+
+  public getOrdiniDaRitirare():Observable<any>{
+    return this.http.get(this.url+"/"+this._sharedIdCorriere+"/ordini/daRitirare",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+  public getOrdiniInConsegna():Observable<any>{
+    return this.http.get(this.url+"/"+this._sharedIdCorriere+"/ordini/inConsegna",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+  public getOrdiniConsegnati():Observable<any>{
+    return this.http.get(this.url+"/"+this._sharedIdCorriere+"/ordini/consegnati",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+  public getOrdiniCompletati():Observable<any>{
+    return this.http.get(this.url+"/"+this._sharedIdCorriere+"/ordini/completati",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
+
+  public getOrdini():Observable<any>{
+    return this.http.get(this.url+"/"+this._sharedIdCorriere+"/ordini",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
   
+  public getChiamate():Observable<any>{
+    return this.http.get(this.url+"/chiamate",{
+      headers:this.httpHeaders,
+      responseType:'json'
+    })
+  }
 
   public logoutCorriere(){
     this._sharedIdCorriere=null;
   }
 
-  public accettaChiamata(id:number){
+  public accettaChiamata(id:number):Observable<any>{
     let idChiamata = id.toString();
-    return this.http.delete(this.url+"/corrieri/"+this._sharedIdCorriere+"/accettaChiamata",{
+    return this.http.delete(this.url+"/"+this._sharedIdCorriere+"/accettaChiamata",{
       headers:this.httpHeaders,
       params:{idChiamata}
     })
   }
 
-  public ritiraOrdine(id:number){
-    let idChiamata = id.toString();
-    return this.http.patch(this.url+"/corrieri/"+this._sharedIdCorriere+"/ordini/ritiraOrdine",null,{
+  public ritiraOrdine(id:number):Observable<any>{
+    let idOrdine = id.toString();
+    return this.http.patch(this.url+"/"+this._sharedIdCorriere+"/ordini/ritiraOrdine",null,{
       headers:this.httpHeaders,
-      params:{idChiamata}
+      params:{idOrdine}
     })
   }
 
-  public consegnaOrdine(id:number){
-    let idChiamata = id.toString();
-    return this.http.post(this.url+"/corrieri/"+this._sharedIdCorriere+"/ordini/consegnaOrdine",null,{
+  public consegnaOrdine(id:number):Observable<any>{
+    let idOrdine = id.toString();
+    return this.http.post(this.url+"/"+this._sharedIdCorriere+"/ordini/consegnaOrdine",null,{
       headers:this.httpHeaders,
-      params:{idChiamata}
+      params:{idOrdine}
     })
   }
   
