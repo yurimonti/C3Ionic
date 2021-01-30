@@ -142,4 +142,8 @@ export class EffettuaOrdinePage implements OnInit {
     this.getLockers();
   }
 
+  public indietro(){
+    this.router.navigate(['../../clienti']);
+  }
+
 }

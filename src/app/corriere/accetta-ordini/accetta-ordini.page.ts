@@ -39,9 +39,7 @@ export class AccettaOrdiniPage implements OnInit {
     this.corriereService.accettaChiamata(this._id).subscribe();
   }
 
-  public aggiorna(){
 
-  }
   public indietro(){
     this.router.navigate(["../../corriere"]);
 
